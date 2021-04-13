@@ -7,24 +7,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Article</title>
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
 <body>
   <%- include('../partials/header.ejs')  %>
-  <section>
+  <section id="user-form">
     <h2 id="new-article-title">ADD NEW ARTICLE</h2>
     <span id="short-line"></span>
-    <form action="/new" method="post">
+    <form action="/new" enctype="multipart/form-data" method="post">
+      <input type="text" name="articleTitle" id="article-title-input" placeholder="Title">
+      <label for="article-picture" class="custom-file-upload">
+        <i class="fa fa-cloud-upload"></i> Upload image for your article
+      </label>
+      <input type="file" name="articlePicture" id="article-picture" multiple="multiple" />
+      <input type="text" name="authorName" id="author-name" placeholder="Author">
+      <label for="author-picture" class="custom-file-upload">
+        <i class="fa fa-cloud-upload"></i> Upload profil image
+      </label>
+      <input type="file" name="authorPicture" id="author-picture" multiple="multiple" />
+      <textarea name="authorArticle" id="author-article" rows="10" placeholder="Write your article hier..."></textarea>
+      <input type="submit" value="SEND ARTICLE">
+    </form>
+    <!-- <form action="/new" method="post">
       <input type="text" name="articleTitle" id="article-title-input" placeholder="Title">
       <input type="text" name="articlePicture" id="article-picture" placeholder="Url Picture">
       <input type="text" name="authorName" id="author-name" placeholder="Author">
       <input type="text" name="authorPicture" id="article-picture" placeholder="Author Picture">
       <textarea name="authorArticle" id="author-article">Write your article hier...</textarea>
       <input type="submit" value="SEND ARTICLE">
-    </form>
+    </form> -->
   </section>
 
   <%- include('../partials/footer.ejs')  %>
+  <script src="/main.js"></script>
 </body>
 
 </html>

@@ -7,10 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog Details</title>
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
 <body>
   <%- include('../partials/header.ejs')  %>
+  <section id="delete-blog">
+    <form action=<%=`/delete/${article.id}`%> method="post">
+      <button type="submit"><i class="fas fa-trash-alt"></i>Delete Article</button>
+    </form>
+  </section>
   <section id="article-details">
     <h2><%= article.title %></h2>
     <div id="title-img-div">
@@ -18,7 +25,7 @@
     </div>
     <span id="line-article"></span>
     <div id="author">
-      <img src=<%= article.author_bild%> alt="">
+      <img src=<%= article.author_bild %> alt="">
       <div>
         <b><%= article.author.toUpperCase() %></b>
         <p><%= article.published_at %> &bull; <%= article.duration %> min read </p>
@@ -28,7 +35,11 @@
       <%= article.body %>
     </article>
   </section>
+  <section id="more">
+
+  </section>
   <%- include('../partials/footer.ejs')  %>
+  <script src="/main.js"></script>
 </body>
 
 </html>
